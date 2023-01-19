@@ -52,6 +52,7 @@ p {
   line-height: 1.7em;
 }
 
+/* footer */
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -72,6 +73,23 @@ footer {
     li {
       float: left;
       margin-left: 15px;
+    }
+  }
+}
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
     }
   }
 }
@@ -102,8 +120,9 @@ input, textarea, select, .uneditable-input {
 }
 
 input {
-height: auto !important;
+  height: auto !important;
 }
+
 #error_explanation {
   color: red;
   ul {
@@ -111,6 +130,7 @@ height: auto !important;
     margin: 0 0 30px 0;
   }
 }
+
 .field_with_errors {
   @extend .has-error;
   .form-control {
