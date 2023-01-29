@@ -7,6 +7,9 @@ ruby "2.7.7"
 gem "rails", "~> 7.0.4"
 gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate', '1.0.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
