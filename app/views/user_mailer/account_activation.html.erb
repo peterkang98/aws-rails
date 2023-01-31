@@ -1,0 +1,5 @@
+<h1>Guitar Chord App</h1>
+<p>
+  Welcome to the Guitar Chord App! Click on the link below to activate your account:
+</p>
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
