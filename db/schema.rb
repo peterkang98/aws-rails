@@ -10,9 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_31_153354) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_06_032718) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.string "img_location"
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["title"], name: "index_albums_on_title"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "img_location"
+    t.bigint "views"
+    t.index ["name"], name: "index_artists_on_name"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "categories_songs", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "song_id", null: false
+    t.index ["category_id", "song_id"], name: "index_categories_songs_on_category_id_and_song_id", unique: true
+    t.index ["song_id", "category_id"], name: "index_categories_songs_on_song_id_and_category_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "song_id"
+    t.index ["song_id"], name: "index_favourites_on_song_id"
+    t.index ["user_id", "song_id"], name: "index_favourites_on_user_id_and_song_id", unique: true
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.bigint "artist_id"
+    t.bigint "album_id"
+    t.integer "bpm", limit: 2
+    t.integer "capo", limit: 2
+    t.text "lyrics"
+    t.string "lyricist"
+    t.string "composer"
+    t.bigint "views"
+    t.string "youtube_id"
+    t.datetime "created_at", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
+    t.index ["title"], name: "index_songs_on_title"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -30,4 +81,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_153354) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "albums", "artists"
+  add_foreign_key "categories_songs", "categories"
+  add_foreign_key "categories_songs", "songs"
+  add_foreign_key "favourites", "songs"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "artists"
 end

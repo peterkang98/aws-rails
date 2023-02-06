@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+  <%= link_to image_tag("logos/logo_small.png", class:"navbar-brand", width:"180"), root_path %>
     <nav>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed"
@@ -13,7 +14,7 @@
         </button>
       </div>
       <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1">
+          id="bs-example-navbar-collapse-1">  
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <% if logged_in? %>
