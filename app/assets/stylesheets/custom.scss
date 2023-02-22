@@ -34,22 +34,73 @@ h6 {
   line-height: 1;
 }
 h1 {
-  font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  font-weight: bold;
 }
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
+  letter-spacing: -2px;
   font-weight: normal;
+  color: rgb(96, 96, 96);
+}
+
+/* lyrics css */
+.song {
+  font-size: 1.3em;
+  line-height: 2.5em;
+  font-weight: 700;
+}
+
+.chord, .no-lyrics-chord{
+  position: relative;
+  top: -0.9em;
+  color: red;
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: normal;
+  display:inline-block;
+}
+
+.chord{
+  width: 0;
+}
+
+.no-lyrics-chord{
+  width: 50px;
+  margin: 0 0.7em 0 0;
+}
+
+.img-chord{
+  vertical-align: unset;
+  margin: 0 0 3px -5px;
+}
+
+.structure{
+  font-size: 1.2em;
+  color: rgb(128, 234, 23);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.desc{
+  display:inline;
+}
+
+.title{
+  font-size: 6vw;
+}
+
+.artist{
+  font-size: 5vw;
+}
+
+.etc{
+  font-weight: 700;
   color: $gray-light;
 }
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+
+iframe { 
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 /* custom navbar */

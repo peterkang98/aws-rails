@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_06_032718) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_06_092630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,10 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_032718) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
+    t.string "original_name"
     t.string "img_location"
     t.bigint "views"
-    t.index ["name"], name: "index_artists_on_name"
+    t.string "korean_name"
+    t.index ["korean_name"], name: "index_artists_on_korean_name"
+    t.index ["original_name"], name: "index_artists_on_original_name"
   end
 
   create_table "categories", force: :cascade do |t|

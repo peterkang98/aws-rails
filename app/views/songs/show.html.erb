@@ -1,0 +1,21 @@
+<% provide(:title, @song.title) %>
+<%= content_for :head do %>
+  <%= javascript_import_module_tag "chords" %>
+<% end %>
+<div class="well well-sm">
+  <%= render partial: "info", locals: { song: @song, album: @album } %>
+</div>
+<div class="row">
+  <%= render partial: "controls", locals: { song: @song } %>
+  <%= render partial: "video", locals: { song: @song } unless @song.youtube_id.nil? || @song.youtube_id.empty? %>
+</div>
+<% subs = { '[' => '<span class="chord">', ']' => '</span>',
+ '{' => '<span class="no-lyrics-chord">', '}' => '</span>',
+ '`' => '<span class="structure">' } %>
+<div class="well well-sm" onclick="toggleScroll()">
+  <div class="song">
+    <% @song.lyrics.each_line do |line| %>
+      <%= raw(line.gsub(/[\`\[\]\{\}]/, subs)) %><br/>
+    <% end %>
+  </div>
+</div>

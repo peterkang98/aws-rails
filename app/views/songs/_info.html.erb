@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-6 col-sm-4 col-md-3 col-lg-3">
+    <%= image_tag "albums/#{album.img_location}", class:"img-thumbnail" %>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+    <h1 class="desc title"><%= song.title %></h1>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+    <h2 class="desc artist"><%= song.artist.original_name %></h2>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+    <h4 class="desc etc">수록 앨범: <%= album.title %></h4>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+    <h5 class="desc etc">작곡: <%= song.composer %></h5>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+    <h5 class="desc etc">작사: <%= song.lyricist %></h5>
+  </div>
+</div>

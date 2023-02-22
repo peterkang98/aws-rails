@@ -1,0 +1,73 @@
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading lead" style="margin:0;"><strong>악보 설정</strong></div>
+    <ul class="panel-body list-group">
+      <li class="list-group-item">
+        <button id="show" type="button" class="btn btn-info" onclick="toggleChords()">
+          <strong>코드 운지법 표시: ON</strong>
+        </button>
+      </li>
+      <li class="list-group-item">
+        <strong>악보를 클릭하여 자동 스크롤 기능을 켜세요</strong>
+      </li>
+      <li class="list-group-item">
+        <form>
+          <div class="form-group">
+            <label>스크롤 속도</label>
+            <select class="form-control" onchange="setSpeed(this.value)">
+              <% (1..20).each do |i| %>
+                <% val = i %>
+                <% if i == 1 %>
+                  <% val = "1(느림)" %>
+                <% elsif i == 10 %>
+                  <% val = "스크롤 속도 10" %>
+                <% elsif i == 20 %>
+                  <% val = "20(빠름)" %>
+                <% end %>
+                <%= content_tag(:option, val , selected: i==10 ? true : false, value: i ) %>
+              <% end %>
+            </select>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="bpm-speed" onclick="setSpeedToBpm(<%= song.bpm %>)">BPM에 맞추기
+            </label>
+          </div>
+        </form>
+      </li>
+      <li class="list-group-item">
+        <form>
+          <div class="form-group">
+            <label>카포</label>
+            <select class="form-control" id="capo" onchange="transpose(this.value, 'Capo')">
+              <% (-1..9).each do |i| %>
+                <% msg = " (권장)" %>
+                <% val = "" %>
+                <% if i == -1 %>
+                  <% val = "하프 다운 튜닝" %>
+                <% elsif i == 0 %>
+                  <% val = "카포 없음"%>
+                <% else %>
+                  <% val = "카포 #{i} 프렛"%>
+                <% end %>
+                <%= content_tag(:option, i==song.capo ? val+msg : val, selected: i==song.capo ? true : false, value: i) %>
+              <% end %>
+            </select>
+          </div>
+        </form>
+      </li>
+      <li class="list-group-item">
+        <form>
+          <div class="form-group">
+            <label>Key(음정)</label>
+            <select class="form-control" onchange="transpose(this.value, 'Key')">
+              <% (-5..5).each do |i| %>
+              <%= content_tag(:option, sprintf('%+d', i), selected: i==0 ? true : false, value: i ) %>
+              <% end %>
+            </select>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
