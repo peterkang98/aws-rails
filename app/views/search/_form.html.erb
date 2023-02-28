@@ -1,0 +1,8 @@
+<%= form_with url: "/search", method: :get, class: 'form-inline navbar-form' do |form| %>
+  <div class="input-group" id="search">
+    <%= form.text_field :query, class: 'form-control', style: 'margin-bottom: 0; width: auto', placeholder: "곡 제목/가수명을 검색.." %>
+    <span class="input-group-btn">
+      <%= form.button content_tag(:span, '', class: "glyphicon glyphicon-search"), type: "submit", class: "btn btn-primary" %>
+    </span>
+  </div>
+<% end %>

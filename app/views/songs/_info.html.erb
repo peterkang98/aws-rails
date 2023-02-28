@@ -6,7 +6,9 @@
     <h1 class="desc title"><%= song.title %></h1>
   </div>
   <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
-    <h2 class="desc artist"><%= song.artist.original_name %></h2>
+    <%= link_to song.artist do %>
+      <h2 class="desc artist"><%= song.artist.original_name %></h2>
+    <% end %>
   </div>
   <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
     <h4 class="desc etc">수록 앨범: <%= album.title %></h4>

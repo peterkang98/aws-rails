@@ -25,6 +25,14 @@ textarea {
   }
 }
 
+.black {
+  color: $gray-darker;
+  &:hover {
+    text-decoration: none;
+    color: $gray-light;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -86,11 +94,11 @@ h2 {
 }
 
 .title{
-  font-size: 6vw;
+  font-size: 5vw;
 }
 
 .artist{
-  font-size: 5vw;
+  font-size: 4vw;
 }
 
 .etc{
@@ -235,6 +243,11 @@ input {
   margin-left: 0;
 }
 
+@media (max-width: 768px) {
+  #search{
+    display: block;
+  }
+}
 
 /* Users index */
 

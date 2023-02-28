@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'artists/show'
+  get 'search', to: 'search#show'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :songs, only: [:show]
+  resources :artists, only: [:show]
+  resources :albums, only: [:show]
 end

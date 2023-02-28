@@ -1,15 +1,23 @@
-let list = document.querySelectorAll(".chord, .no-lyrics-chord");
 let chords = [];
-for (let i = 0; i < list.length; i++) {
-  chords.push(list[i].innerHTML);
-  list[i].innerHTML = `${list[i].innerHTML}<img src="/chords/${encodeURIComponent(list[i].innerHTML)}.svg" class="img-chord">`;
-}
+let list = [];
+let capoOffset = 0;
+
+document.addEventListener("turbo:load", function(event) {
+  capoOffset = document.getElementById("capo").value;
+  list = document.querySelectorAll(".chord, .no-lyrics-chord");
+  chords = [];
+  for (let i = 0; i < list.length; i++) {
+    chords.push(list[i].innerHTML);
+    let rep = list[i].innerHTML.replace('/', '_');
+    list[i].innerHTML = `${list[i].innerHTML}<img src="/chords/${encodeURIComponent(rep)}.svg" class="img-chord">`;
+  }
+})
 
 let shown = true;
 let scrollEnabled = false;
 let scrollSpeed = 45;
 let timeout = 0;
-let curCapo = document.getElementById("capo").value;
+let curCapo = 0;
 let curKey = 0;
 const scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
@@ -59,16 +67,18 @@ function setSpeedToBpm(bpm) {
 }
 
 function transpose(amount, option) {
+  list = document.querySelectorAll(".chord, .no-lyrics-chord");
   amount = parseInt(amount);
   if(option == "Key"){
     curKey = amount;
   }else if(option == "Capo"){
-    curCapo = amount;
+    curCapo = amount - capoOffset;
   }
   
   if((curKey - curCapo)==0){
     for (let i = 0; i < list.length; i++) {
-      list[i].innerHTML = `${chords[i]}<img src="/chords/${encodeURIComponent(chords[i])}.svg" class="img-chord">`;
+      let rep = chords[i].replace('/', '_');
+      list[i].innerHTML = `${chords[i]}<img src="/chords/${encodeURIComponent(rep)}.svg" class="img-chord">`;
     }
   }else{
     let newChord = "";
@@ -77,7 +87,8 @@ function transpose(amount, option) {
         const index = (scale.indexOf(match) + (curKey - curCapo)) % scale.length;
         return scale[index < 0 ? index + scale.length : index];
       });
-      list[i].innerHTML = `${newChord}<img src="/chords/${encodeURIComponent(newChord)}.svg" class="img-chord">`;
+      let rep = newChord.replace('/', '_');
+      list[i].innerHTML = `${newChord}<img src="/chords/${encodeURIComponent(rep)}.svg" class="img-chord">`;
     }
   }
 }

@@ -32,7 +32,14 @@ end
 task :songs => :environment do
   songs = [
     { title: 'Photograph', artist_id: 1, album_id: 1, bpm: 108, capo: 0,
-      lyrics: "", lyricist: 'Ed Sheeran, John McDaid', composer: 'Ed Sheeran, John McDaid', views: 0, youtube_id: 'nSDgHBxUbVQ' }
+      lyrics: "", lyricist: 'Ed Sheeran, John McDaid', composer: 'Ed Sheeran, John McDaid', views: 0, youtube_id: 'nSDgHBxUbVQ' },
+    { title: 'Thinking Out Loud', artist_id: 1, album_id: 1, bpm: 79, capo: 0,
+      lyrics: "", lyricist: 'Amy Wadge, Ed Sheeran', composer: 'Amy Wadge, Ed Sheeran', views: 0, youtube_id: 'lp-EO5I60KA' },
+    { title: 'Lego House', artist_id: 1, album_id: 2, bpm: 80, capo: 0,
+      lyrics: "", lyricist: 'Ed Sheeran, Jake Gosling', composer: 'Ed Sheeran, Jake Gosling', views: 0, youtube_id: 'c4BLVznuWnU' },
+    { title: 'The A Team', artist_id: 1, album_id: 2, bpm: 85, capo: 2,
+      lyrics: "", lyricist: 'Ed Sheeran, Jake Gosling', composer: 'Ed Sheeran, Jake Gosling', views: 0, youtube_id: 'UAWcs5H-qgQ' },
+
   ]
 
   songs.each do |song|

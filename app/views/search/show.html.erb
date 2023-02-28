@@ -1,0 +1,44 @@
+<% provide(:title, '검색결과') %>
+<h1 class="text-center">검색결과</h1>
+<h2>가수</h2>
+<div class="row">
+  <% if @artists.empty? %>
+    <%= render 'empty' %>
+  <% else %>
+    <% @artists.each do |artist| %>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to artist, class: 'black' do %>
+          <div class="well">    
+            <%= image_tag(artist.img_location, class:"img-responsive img-circle")%>
+            <h3 class="text-center"><strong><%= artist.korean_name %></strong></h3>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end%>
+</div>
+<h2>노래</h2>
+<div class="row">
+  <% if @songs.empty? && @artist_songs.empty? %>
+    <%= render 'empty' %>
+  <% else %>
+    <div class="col-sm-12">
+      <div class="list-group">
+        <% @songs.each do |song| %>
+          <%= link_to song, class: 'list-group-item' do %>
+            <h3 class="desc"><%= song.title %></h3>
+            <span>- <%= song.artist.original_name %></span>
+          <% end %>  
+        <% end %>
+        <% @artist_songs.each do |artist| %>
+          <% artist.each do |song| %>
+            <%= link_to song, class: 'list-group-item' do %>
+              <h3 class="desc"><%= song.title %></h3>
+              <span>- <%= song.artist.original_name %></span>
+            <% end %>  
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
