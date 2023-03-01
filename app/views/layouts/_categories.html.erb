@@ -1,0 +1,8 @@
+<div class="list-group">
+  <div class="list-group-item active lead"><strong>카테고리 / 장르</strong></div>
+  <% categories.each do |category| %>
+    <%= link_to category, class: 'list-group-item' do %>
+      <h4><strong><%= category.name %></strong></h4>
+    <% end %>
+  <% end %>
+</div>

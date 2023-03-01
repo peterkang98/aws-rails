@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/show'
   get 'artists/show'
   get 'search', to: 'search#show'
   get 'password_resets/new'
@@ -16,5 +17,5 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :songs, only: [:show]
   resources :artists, only: [:show]
-  resources :albums, only: [:show]
+  resources :categories, only: [:show]
 end

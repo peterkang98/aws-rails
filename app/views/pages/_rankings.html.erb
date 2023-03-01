@@ -1,0 +1,15 @@
+<div class="list-group">
+  <div class="list-group-item active lead"><strong><%= msg %></strong></div>
+  <% arr.each_with_index do |var, index| %>
+    <%= link_to var, class: 'list-group-item' do %>
+      <h4>
+        <strong class="text-primary"><%= index+1 %>. </strong>
+        <% if msg=="Top 10 악보 랭킹" || msg=="최신악보" %>
+          <strong><%= var.title %></strong> - <%= var.artist.korean_name %>
+        <% else %>
+          <strong><%= var.korean_name %></strong>
+        <% end %>
+      </h4>
+    <% end %>
+  <% end %>
+</div>
