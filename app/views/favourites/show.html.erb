@@ -1,0 +1,24 @@
+<% provide(:title, "즐겨찾기") %>
+<h1><%= "#{current_user.name}님의 즐겨찾기 목록" %></h1>
+<div class="row">
+  <div class="col-sm-8">
+    <% if @fav == [] %>
+      <div class="panel panel-warning">
+        <div class="panel-heading">즐겨찾기 목록이 비어 있습니다.</div>
+        <div class="panel-body">악보 페이지에서 즐겨찾기 추가를 할 수 있습니다.</div>
+      </div>
+    <% else %>
+      <div class="list-group">
+        <% @fav.each do |favourite| %>
+          <%= link_to favourite.song, class: 'list-group-item' do %>
+            <h3 class="desc"><%= favourite.song.title %></h3>
+            <span>- <%= favourite.song.artist.original_name %></span>
+          <% end %>  
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <%= render partial: 'layouts/categories', locals: { categories: @categories } %>
+  </div>
+</div>

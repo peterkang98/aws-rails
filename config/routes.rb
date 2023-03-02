@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/show'
-  get 'artists/show'
   get 'search', to: 'search#show'
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -18,4 +16,5 @@ Rails.application.routes.draw do
   resources :songs, only: [:show]
   resources :artists, only: [:show]
   resources :categories, only: [:show]
+  resources :favourites, only: [:show, :update]
 end

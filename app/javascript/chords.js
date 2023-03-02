@@ -1,8 +1,15 @@
 let chords = [];
 let list = [];
 let capoOffset = 0;
+let shown = true;
+let scrollEnabled = false;
+let scrollSpeed = 45;
+let timeout = 0;
+let curCapo = 0;
+let curKey = 0;
+const scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-document.addEventListener("turbo:load", function(event) {
+function chordRender(){
   capoOffset = document.getElementById("capo").value;
   list = document.querySelectorAll(".chord, .no-lyrics-chord");
   chords = [];
@@ -11,15 +18,7 @@ document.addEventListener("turbo:load", function(event) {
     let rep = list[i].innerHTML.replace('/', '_');
     list[i].innerHTML = `${list[i].innerHTML}<img src="/chords/${encodeURIComponent(rep)}.svg" class="img-chord">`;
   }
-})
-
-let shown = true;
-let scrollEnabled = false;
-let scrollSpeed = 45;
-let timeout = 0;
-let curCapo = 0;
-let curKey = 0;
-const scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+}
 
 function toggleChords() {
   let list = document.getElementsByClassName("img-chord");
@@ -62,7 +61,7 @@ function setSpeed(val) {
 
 function setSpeedToBpm(bpm) {
   const beat_dur = 60 / bpm;
-  const bars_time = beat_dur * 4 * 3;
+  const bars_time = beat_dur * 4 * 2.5;
   scrollSpeed = bars_time * 9;
 }
 
@@ -98,3 +97,5 @@ window.setSpeedToBpm = setSpeedToBpm;
 window.setSpeed = setSpeed;
 window.toggleScroll = toggleScroll;
 window.toggleChords = toggleChords;
+
+chordRender();

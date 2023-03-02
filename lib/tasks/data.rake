@@ -39,6 +39,7 @@ task :albums => :environment do
     {title: '20', img_location: '20.jfif', artist_id: 11},
     {title: '난 자꾸 말을 더듬고 잠드는 법도 잊었네', img_location: 'i_often_stutter.jfif', artist_id: 7},
     {title: '계몽', img_location: 'enlightment.jfif', artist_id: 7},
+    {title: 'シャンデリア', img_location: 'chandelier.jfif', artist_id: 8},
   ]
 
   albums.each do |album|
@@ -106,6 +107,8 @@ task :songs => :environment do
       lyrics: "", lyricist: '윤성현', composer: '윤성현', views: 0, youtube_id: 'ySVlvfWm1Hc' },
     { title: '로마네스크', artist_id: 7, album_id: 18, bpm: 86, capo: 2,
       lyrics: "", lyricist: '윤성현', composer: '홍동균', views: 0, youtube_id: 'd9iPnELxm3M' },
+    { title: 'クリスマスソング', artist_id: 8, album_id: 19, bpm: 77, capo: 0,
+      lyrics: "", lyricist: '清水依与吏', composer: '清水依与吏', views: 0, youtube_id: '7zBeQezaz4U' },
   ]
 
   songs.each do |song|
@@ -131,7 +134,7 @@ end
 
 task :categories_songs => :environment do
   category = Category.find_by(name: 'OST')
-  song_ids = [13]
+  song_ids = [30]
 
   song_ids.each do |id|
     song = Song.find(id)

@@ -10,13 +10,22 @@
       <h2 class="desc artist"><%= song.artist.original_name %></h2>
     <% end %>
   </div>
-  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8 mt-1">
     <h4 class="desc etc">수록 앨범: <%= album.title %></h4>
   </div>
-  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
+  <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8 mt-1">
     <h5 class="desc etc">작곡: <%= song.composer %></h5>
   </div>
   <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8">
     <h5 class="desc etc">작사: <%= song.lyricist %></h5>
   </div>
+  <% if logged_in? %>
+    <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8 mt-1">
+      <button class="btn btn-default">
+        <span class="<%= favourite_class %>"></span>
+        <%= link_to favourite_text, favourite_path(song_id: song.id, id: current_user.id),
+        id: 'favourite-link', class: 'black' , data: { 'turbo-method': :patch }, remote: true  %>
+      </button>  
+    </div>
+  <% end %>
 </div>

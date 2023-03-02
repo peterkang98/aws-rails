@@ -1,6 +1,7 @@
 <% provide(:title, @song.title) %>
 <%= content_for :head do %>
-  <%= javascript_import_module_tag "chords" %>
+  <meta name="turbo-visit-control" content="reload">
+  <%= javascript_include_tag "chords", :defer => "defer" %>
 <% end %>
 <div class="well well-sm">
   <%= render partial: "info", locals: { song: @song, album: @album } %>
