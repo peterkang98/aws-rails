@@ -106,11 +106,21 @@ h2 {
 }
 
 .title{
-  font-size: 4.6vw;
+  @media(max-width: 520px){
+    font-size: 23px;
+  }
+  @media(min-width: 521px){
+    font-size: 4.6vw;
+  }  
 }
 
 .artist{
-  font-size: 4vw;
+  @media(max-width: 520px){
+    font-size: 21px;
+  }
+  @media(min-width: 521px){
+    font-size: 4vw;
+  } 
 }
 
 .etc{
