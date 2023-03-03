@@ -30,4 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        name: '이름'
+        email: '이메일'
+        password: '비밀번호'
+        password_confirmation: '비밀번호 재확인'
+        password_digest: '비밀번호 재확인'
+    
