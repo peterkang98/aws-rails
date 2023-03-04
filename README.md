@@ -1,6 +1,6 @@
 # 기타 코드 악보 사이트
 **Ruby on Rails로 작성하고 AWS EC2 인스턴스에 배포한 웹 애플리케이션입니다. [사이트 링크](https://myrailsproject.link)**
-
+![image](https://user-images.githubusercontent.com/101819709/222896541-b692e830-81d2-47b4-9973-ff0895626ec2.png)
 ## 주요 기능
 - **곡 제목 또는 가수명으로 악보 검색 가능**
 - **악보 즐겨찾기**(회원인 경우)
