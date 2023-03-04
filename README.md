@@ -1,5 +1,6 @@
 # 기타 코드 악보 사이트
-**Ruby on Rails로 작성하고 AWS EC2 인스턴스에 배포한 웹 애플리케이션입니다. [사이트 링크](https://myrailsproject.link)**
+**Ruby on Rails로 작성하고 AWS EC2 인스턴스에 배포한 웹 애플리케이션입니다. [사이트 링크](https://myrailsproject.link)**\
+***(현재 완성된 악보는 Photograph - Ed Sheeran, The A Team - Ed Sheeran 2개뿐입니다.)***
 ### PC 화면
 - 홈 화면
 ![image](https://user-images.githubusercontent.com/101819709/222896541-b692e830-81d2-47b4-9973-ff0895626ec2.png)
