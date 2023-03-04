@@ -30,12 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  errors:
+    format: "%{message}"
+    messages:
+      confirmation: "%{attribute}가 일치하지 않습니다"
   activerecord:
     attributes:
       user:
-        name: '이름'
-        email: '이메일'
         password: '비밀번호'
         password_confirmation: '비밀번호 재확인'
         password_digest: '비밀번호 재확인'
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "비밀번호를 입력하세요"
     

@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
-  validates :name, presence: {message: '을 입력하세요'}, length: { maximum: 50, message: '은 최대 50자로 입력하세요' }
+  validates :name, presence: {message: '이름을 입력하세요'}, length: { maximum: 50, message: '이름은 최대 50자로 입력하세요' }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: {message: '주소를 입력하세요'}, length: { maximum: 255, message: '은 최대 255자로 입력하세요' },
-    format: { with: VALID_EMAIL_REGEX, message: '주소가 유효하지 않습니다.' }, uniqueness: {message: '주소를 누군가가 쓰고 있습니다.'}
+  validates :email, presence: {message: '이메일 주소를 입력하세요'}, length: { maximum: 255, message: '이메일 주소는 최대 255자로 입력하세요' },
+    format: { with: VALID_EMAIL_REGEX, message: '올바른 이메일 주소를 입력하세요.' }, uniqueness: {message: '이미 사용 중인 이메일 주소입니다'}
 
   has_secure_password
-  validates :password, presence: {message: '를 입력하세요'}, length: { minimum: 6, message: '를 최소 6자로 입력하세요' }
+  validates :password, presence: true, length: { minimum: 6, message: '비밀번호를 최소 6자로 입력하세요' }
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
