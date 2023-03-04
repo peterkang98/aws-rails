@@ -1,7 +1,7 @@
 class FavouritesController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user
-  
+
   def update
     favourite = Favourite.where(song_id: params[:song_id], user_id: params[:id])
     if favourite == []
@@ -12,10 +12,9 @@ class FavouritesController < ApplicationController
       @favourite_exists = false
     end
 
-    respond_to do |format|
-      format.html {}
-      format.js {}
-    end
+    render turbo_stream:
+      turbo_stream.update("favourite", 
+        partial: 'favourites/button', locals: {song_id: params[:song_id]})
   end
 
   def show
@@ -25,7 +24,7 @@ class FavouritesController < ApplicationController
 
   def logged_in_user
     unless logged_in?
-      flash[:danger] = "Please log in"
+      flash[:danger] = "로그인을 해주세요"
       redirect_to login_url
     end
   end

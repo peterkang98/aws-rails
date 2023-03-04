@@ -22,9 +22,9 @@
   <% if logged_in? %>
     <div class="col-xs-offset-3 col-sm-offset-0 col-xs-12 col-sm-8 mt-1">
       <button class="btn btn-default">
-        <span class="<%= favourite_class %>"></span>
-        <%= link_to favourite_text, favourite_path(song_id: song.id, id: current_user.id),
-        id: 'favourite-link', class: 'black' , data: { 'turbo-method': :patch }, remote: true  %>
+        <%= turbo_frame_tag "favourite" do %>
+          <%= render partial: 'favourites/button', locals: { song_id: song.id } %>
+        <% end %>
       </button>  
     </div>
   <% end %>

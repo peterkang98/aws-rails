@@ -1,0 +1,3 @@
+<span class="<%= favourite_class %>"></span>
+<%= link_to favourite_text, favourite_path(song_id: song_id, id: current_user.id),
+id: 'favourite-link', class: 'black' , data: { 'turbo-method': :patch }, remote: true  %>

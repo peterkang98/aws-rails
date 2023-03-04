@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Profile Updated"
+      flash[:success] = "프로필이 수정되었습니다"
       redirect_to @user
     else
       render 'edit', status: :unprocessable_entity
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "회원이 삭제되었습니다"
     redirect_to users_url
   end
 
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = "Please log in"
+      flash[:danger] = "로그인을 해주세요"
       redirect_to login_url
     end
   end
