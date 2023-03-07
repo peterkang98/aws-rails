@@ -50,6 +50,10 @@
       - Capistrano 3.10
       - Capistrano-rails 1.5
       - Capistrano-db-tasks
+    - Javascript
+      - jQuery 3.4.1
+      - Popper 2.11.6
+      - Bootstrap 3.4.1
 - **DB**
   - **PostgreSQL 14.7**
     - **pgAdmin 4 (v6.4)**
