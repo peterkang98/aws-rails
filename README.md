@@ -52,6 +52,8 @@
       - Capistrano-db-tasks
 - **DB**
   - **PostgreSQL 14.7**
+    - **pgAdmin 4 (v6.4)**
+  - **Visual Paradigm 16.3** -> 개체 관계도 작성 프로그램
 - **배포**
   - **AWS**
     - EC2
